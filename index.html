@@ -1,1209 +1,2054 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seray Kurnaz — Portfolyo</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="logo.png">
-<style>
-/* =================== CSS VARIABLES / THEMES =================== */
-:root {
-  --bg: #0a0a0f;
-  --bg2: #111118;
-  --surface: #1a1a28;
-  --border: rgba(120,80,255,0.25);
-  --accent: #7c4dff;
-  --accent2: #00e5ff;
-  --accent3: #ff4081;
-  --text: #e8e6f0;
-  --text-muted: rgba(232,230,240,0.55);
-  --glow: 0 0 30px rgba(124,77,255,0.35);
-  --card-bg: rgba(26,26,40,0.85);
-  --gradient: linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%);
-  --particle: #7c4dff;
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Syne', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
-[data-theme="elegance"] {
-  --bg: #faf8f2;
-  --bg2: #f0ece0;
-  --surface: #ffffff;
-  --border: rgba(180,140,60,0.3);
-  --accent: #b8860b;
-  --accent2: #8b4513;
-  --accent3: #d4af37;
-  --text: #2c2416;
-  --text-muted: rgba(44,36,22,0.5);
-  --glow: 0 4px 30px rgba(184,134,11,0.2);
-  --card-bg: rgba(255,255,255,0.9);
-  --gradient: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
-  --particle: #d4af37;
-}
-[data-theme="ocean"] {
-  --bg: #020b18;
-  --bg2: #041629;
-  --surface: #0a2540;
-  --border: rgba(0,180,255,0.25);
-  --accent: #00b4ff;
-  --accent2: #00ffcc;
-  --accent3: #ff6b35;
-  --text: #d0eaff;
-  --text-muted: rgba(208,234,255,0.5);
-  --glow: 0 0 30px rgba(0,180,255,0.3);
-  --card-bg: rgba(10,37,64,0.9);
-  --gradient: linear-gradient(135deg, #00b4ff 0%, #00ffcc 100%);
-  --particle: #00b4ff;
-}
-[data-theme="forest"] {
-  --bg: #0d1a0f;
-  --bg2: #132416;
-  --surface: #1a3320;
-  --border: rgba(80,200,80,0.25);
-  --accent: #4caf50;
-  --accent2: #8bc34a;
-  --accent3: #ff9800;
-  --text: #d8f0d8;
-  --text-muted: rgba(216,240,216,0.5);
-  --glow: 0 0 30px rgba(76,175,80,0.3);
-  --card-bg: rgba(26,51,32,0.9);
-  --gradient: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
-  --particle: #4caf50;
-}
-[data-theme="sunset"] {
-  --bg: #1a0820;
-  --bg2: #2a0f35;
-  --surface: #3d1a4a;
-  --border: rgba(255,100,150,0.3);
-  --accent: #ff6b9d;
-  --accent2: #ff8c42;
-  --accent3: #ffd700;
-  --text: #ffeef5;
-  --text-muted: rgba(255,238,245,0.55);
-  --glow: 0 0 30px rgba(255,107,157,0.35);
-  --card-bg: rgba(61,26,74,0.9);
-  --gradient: linear-gradient(135deg, #ff6b9d 0%, #ff8c42 100%);
-  --particle: #ff6b9d;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seray Kurnaz — Portfolyo</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* =================== CSS VARIABLES / THEMES =================== */
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --surface: #1a1a28;
+      --border: rgba(120, 80, 255, 0.25);
+      --accent: #7c4dff;
+      --accent2: #00e5ff;
+      --accent3: #ff4081;
+      --text: #e8e6f0;
+      --text-muted: rgba(232, 230, 240, 0.55);
+      --glow: 0 0 30px rgba(124, 77, 255, 0.35);
+      --card-bg: rgba(26, 26, 40, 0.85);
+      --gradient: linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%);
+      --particle: #7c4dff;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
 
-/* =================== RESET & BASE =================== */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  transition: background 0.6s ease, color 0.6s ease;
-  cursor: none;
-}
-a { text-decoration: none; color: var(--accent); }
-::selection { background: var(--accent); color: #fff; }
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg2); }
-::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+    [data-theme="elegance"] {
+      --bg: #faf8f2;
+      --bg2: #f0ece0;
+      --surface: #ffffff;
+      --border: rgba(180, 140, 60, 0.3);
+      --accent: #b8860b;
+      --accent2: #8b4513;
+      --accent3: #d4af37;
+      --text: #2c2416;
+      --text-muted: rgba(44, 36, 22, 0.5);
+      --glow: 0 4px 30px rgba(184, 134, 11, 0.2);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --gradient: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
+      --particle: #d4af37;
+    }
 
-/* =================== CUSTOM CURSOR =================== */
-#cursor {
-  position: fixed; width: 12px; height: 12px;
-  background: var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s, background 0.3s, width 0.2s, height 0.2s;
-  mix-blend-mode: screen;
-}
-#cursor-trail {
-  position: fixed; width: 36px; height: 36px;
-  border: 1.5px solid var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: left 0.12s ease, top 0.12s ease, border-color 0.3s;
-  opacity: 0.5;
-}
-body:hover #cursor { opacity: 1; }
+    [data-theme="ocean"] {
+      --bg: #020b18;
+      --bg2: #041629;
+      --surface: #0a2540;
+      --border: rgba(0, 180, 255, 0.25);
+      --accent: #00b4ff;
+      --accent2: #00ffcc;
+      --accent3: #ff6b35;
+      --text: #d0eaff;
+      --text-muted: rgba(208, 234, 255, 0.5);
+      --glow: 0 0 30px rgba(0, 180, 255, 0.3);
+      --card-bg: rgba(10, 37, 64, 0.9);
+      --gradient: linear-gradient(135deg, #00b4ff 0%, #00ffcc 100%);
+      --particle: #00b4ff;
+    }
 
-/* =================== CANVAS PARTICLES =================== */
-#particles-canvas {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none; z-index: 0;
-  opacity: 0.35;
-}
+    [data-theme="forest"] {
+      --bg: #0d1a0f;
+      --bg2: #132416;
+      --surface: #1a3320;
+      --border: rgba(80, 200, 80, 0.25);
+      --accent: #4caf50;
+      --accent2: #8bc34a;
+      --accent3: #ff9800;
+      --text: #d8f0d8;
+      --text-muted: rgba(216, 240, 216, 0.5);
+      --glow: 0 0 30px rgba(76, 175, 80, 0.3);
+      --card-bg: rgba(26, 51, 32, 0.9);
+      --gradient: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+      --particle: #4caf50;
+    }
 
-/* =================== THEME SWITCHER =================== */
-.theme-switcher {
-  position: fixed; right: 24px; top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.theme-btn {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.2);
-  cursor: none;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-  position: relative;
-}
-.theme-btn:hover { transform: scale(1.4); border-color: #fff; }
-.theme-btn.active { transform: scale(1.4); border-color: #fff; box-shadow: 0 0 12px currentColor; }
-.theme-btn[data-t="cyberpunk"] { background: #7c4dff; }
-.theme-btn[data-t="elegance"] { background: #d4af37; }
-.theme-btn[data-t="ocean"] { background: #00b4ff; }
-.theme-btn[data-t="forest"] { background: #4caf50; }
-.theme-btn[data-t="sunset"] { background: #ff6b9d; }
-.theme-label {
-  position: absolute; right: 28px; top: 50%;
-  transform: translateY(-50%);
-  font-size: 10px; font-family: var(--font-mono);
-  white-space: nowrap; opacity: 0; pointer-events: none;
-  color: var(--text); transition: opacity 0.2s;
-  background: var(--surface); padding: 3px 8px; border-radius: 4px;
-}
-.theme-btn:hover .theme-label { opacity: 1; }
+    [data-theme="sunset"] {
+      --bg: #1a0820;
+      --bg2: #2a0f35;
+      --surface: #3d1a4a;
+      --border: rgba(255, 100, 150, 0.3);
+      --accent: #ff6b9d;
+      --accent2: #ff8c42;
+      --accent3: #ffd700;
+      --text: #ffeef5;
+      --text-muted: rgba(255, 238, 245, 0.55);
+      --glow: 0 0 30px rgba(255, 107, 157, 0.35);
+      --card-bg: rgba(61, 26, 74, 0.9);
+      --gradient: linear-gradient(135deg, #ff6b9d 0%, #ff8c42 100%);
+      --particle: #ff6b9d;
+    }
 
-/* =================== SCROLL PROGRESS BAR =================== */
-#scroll-progress {
-  position: fixed; top: 0; left: 0; width: 0%; height: 3px;
-  background: var(--gradient); z-index: 10001;
-  transition: width 0.1s ease-out;
-}
+    /* =================== RESET & BASE =================== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* =================== NAVBAR =================== */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 60px;
-  backdrop-filter: blur(20px);
-  background: rgba(var(--bg-rgb, 10,10,15), 0.7);
-  border-bottom: 1px solid var(--border);
-  transition: all 0.4s;
-}
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 22px; font-weight: 700;
-  background: var(--gradient);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  letter-spacing: -0.5px;
-}
-.nav-links { display: flex; gap: 36px; }
-.nav-links a {
-  font-size: 12px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--text-muted);
-  transition: color 0.3s, letter-spacing 0.3s;
-  position: relative;
-}
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0;
-  width: 0; height: 1px; background: var(--accent);
-  transition: width 0.3s;
-}
-.nav-links a:hover { color: var(--text); letter-spacing: 3px; }
-.nav-links a:hover::after { width: 100%; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* =================== HERO =================== */
-.hero {
-  min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; z-index: 1;
-  padding: 120px 60px 60px;
-  overflow: hidden;
-}
-.hero-inner {
-  max-width: 1100px; width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-}
-.hero-tag {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--accent); letter-spacing: 3px; text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
-}
-.hero-name {
-  font-family: var(--font-display); font-size: clamp(48px, 6vw, 86px);
-  line-height: 1.0; font-weight: 900;
-  margin-bottom: 24px;
-  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
-}
-.hero-name span {
-  display: block;
-  background: var(--gradient);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-desc {
-  font-size: 16px; line-height: 1.8;
-  color: var(--text-muted); max-width: 420px;
-  opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
-  margin-bottom: 40px;
-}
-.hero-btns {
-  display: flex; gap: 16px;
-  opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
-}
-.btn {
-  padding: 14px 32px; border-radius: 3px;
-  font-family: var(--font-body); font-size: 13px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  cursor: none; transition: all 0.3s; border: none;
-  position: relative; overflow: hidden;
-}
-.btn-primary {
-  background: var(--gradient); color: #fff;
-  box-shadow: var(--glow);
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow), 0 8px 30px rgba(0,0,0,0.3); }
-.btn-outline {
-  background: transparent; color: var(--text);
-  border: 1.5px solid var(--border);
-}
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      transition: background 0.6s ease, color 0.6s ease;
+      cursor: none;
+    }
 
-/* Hero visual */
-.hero-visual {
-  position: relative; display: flex; align-items: center; justify-content: center;
-  opacity: 0; animation: fadeIn 1.2s 0.6s forwards;
-}
-.avatar-ring {
-  position: relative; width: 320px; height: 320px;
-}
-.avatar-ring::before {
-  content: ''; position: absolute; inset: -16px;
-  border-radius: 50%; border: 1.5px solid var(--accent);
-  animation: rotate 12s linear infinite; opacity: 0.4;
-}
-.avatar-ring::after {
-  content: ''; position: absolute; inset: -32px;
-  border-radius: 50%; border: 1px solid var(--accent2);
-  animation: rotate 20s linear infinite reverse; opacity: 0.2;
-}
-.avatar-img {
-  width: 100%; height: 100%; border-radius: 50%;
-  object-fit: cover; border: 3px solid var(--accent);
-  box-shadow: var(--glow), 0 0 60px rgba(0,0,0,0.5);
-  background: var(--surface);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.avatar-placeholder {
-  width: 100%; height: 100%; border-radius: 50%;
-  background: var(--gradient); display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 96px; font-weight: 700; color: #fff;
-  box-shadow: var(--glow), 0 0 60px rgba(0,0,0,0.5);
-  border: 3px solid var(--accent);
-}
-.hero-stats {
-  position: absolute; bottom: -20px; right: -20px;
-  background: var(--card-bg); backdrop-filter: blur(20px);
-  border: 1px solid var(--border); border-radius: 8px;
-  padding: 16px 24px; text-align: center;
-  box-shadow: var(--glow);
-}
-.hero-stats .num {
-  font-family: var(--font-display); font-size: 32px; font-weight: 900;
-  background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-stats .lbl { font-size: 10px; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; }
+    a {
+      text-decoration: none;
+      color: var(--accent);
+    }
 
-/* Floating badges */
-.badge-float {
-  position: absolute; background: var(--card-bg); backdrop-filter: blur(20px);
-  border: 1px solid var(--border); border-radius: 50px;
-  padding: 12px 22px; font-size: 13px; font-weight: 700;
-  letter-spacing: 0.5px; white-space: nowrap;
-  animation: float 6s ease-in-out infinite;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3), var(--glow);
-  color: var(--text);
-  z-index: 10;
-  pointer-events: none;
-}
-/* Strategic positioning inside dedicated container - maximum spacing */
-.badges-container .badge-float:nth-child(1) { top: -60px; left: -160px; animation-delay: 0s; }
-.badges-container .badge-float:nth-child(2) { top: 120px; left: -240px; animation-delay: 1.2s; }
-.badges-container .badge-float:nth-child(3) { bottom: -50px; left: -140px; animation-delay: 2.4s; }
-.badges-container .badge-float:nth-child(4) { top: -40px; right: -180px; animation-delay: 0.6s; }
-.badges-container .badge-float:nth-child(5) { top: 160px; right: -250px; animation-delay: 1.8s; }
-.badges-container .badge-float:nth-child(6) { bottom: -20px; right: -210px; animation-delay: 3s; }
+    ::selection {
+      background: var(--accent);
+      color: #fff;
+    }
 
-@keyframes float {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(10px, -15px); }
-  66% { transform: translate(-10px, 10px); }
-}
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
 
-/* Scroll indicator */
-.scroll-hint {
-  position: absolute; bottom: 40px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  opacity: 0; animation: fadeIn 1s 1.4s forwards;
-  font-size: 10px; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase;
-}
-.scroll-line {
-  width: 1px; height: 60px; background: var(--gradient);
-  animation: scrollPulse 2s infinite;
-}
+    ::-webkit-scrollbar-track {
+      background: var(--bg2);
+    }
 
-/* =================== SECTIONS =================== */
-.section {
-  position: relative; z-index: 1;
-  padding: 100px 60px;
-  max-width: 1200px; margin: 0 auto;
-}
-.section-label {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--accent); letter-spacing: 3px; text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: var(--font-display); font-size: clamp(36px, 4vw, 58px);
-  font-weight: 900; line-height: 1.1; margin-bottom: 60px;
-}
-.section-title em {
-  font-style: italic;
-  background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 2px;
+    }
 
-/* =================== ABOUT =================== */
-.about-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center;
-}
-.about-text p {
-  font-size: 16px; line-height: 1.9; color: var(--text-muted);
-  margin-bottom: 20px;
-}
-.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-.tag {
-  padding: 6px 16px; border-radius: 50px;
-  border: 1px solid var(--border); font-size: 12px;
-  color: var(--accent); font-family: var(--font-mono); letter-spacing: 1px;
-  transition: all 0.3s;
-}
-.tag:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-.info-card {
-  background: var(--card-bg); backdrop-filter: blur(20px);
-  border: 1px solid var(--border); border-radius: 12px;
-  padding: 32px; box-shadow: var(--glow);
-}
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
-.info-row:last-child { border-bottom: none; }
-.info-key { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-.info-val { font-size: 13px; font-weight: 700; color: var(--text); text-align: right; }
+    /* =================== CUSTOM CURSOR =================== */
+    #cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, background 0.3s, width 0.2s, height 0.2s;
+      mix-blend-mode: screen;
+    }
 
-/* =================== EDUCATION =================== */
-.timeline { position: relative; padding-left: 30px; }
-.timeline::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 1px; background: var(--gradient);
-}
-.timeline-item {
-  position: relative; margin-bottom: 50px;
-  opacity: 0; transform: translateX(-20px);
-  transition: opacity 0.6s, transform 0.6s;
-}
-.timeline-item.visible { opacity: 1; transform: translateX(0); }
-.timeline-dot {
-  position: absolute; left: -34px; top: 6px;
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--accent); box-shadow: 0 0 12px var(--accent);
-  border: 2px solid var(--bg);
-}
-.timeline-date {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--accent); letter-spacing: 2px; margin-bottom: 8px;
-}
-.timeline-title {
-  font-family: var(--font-display); font-size: 22px; font-weight: 700;
-  margin-bottom: 6px;
-}
-.timeline-sub { font-size: 14px; color: var(--text-muted); }
+    #cursor-trail {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: left 0.12s ease, top 0.12s ease, border-color 0.3s;
+      opacity: 0.5;
+    }
 
-/* =================== EXPERIENCE =================== */
-.exp-grid { display: flex; flex-direction: column; gap: 30px; }
-.exp-card {
-  background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
-  padding: 30px; display: flex; gap: 24px; align-items: flex-start;
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0; transform: translateY(20px);
-}
-.exp-card.visible { opacity: 1; transform: translateY(0); }
-.exp-card:hover { transform: translateY(-5px); box-shadow: var(--glow); border-color: var(--accent); }
-.exp-logo {
-  width: 64px; height: 64px; background: var(--surface); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center; font-size: 32px;
-  border: 1px solid var(--border); flex-shrink: 0;
-}
-.exp-content { flex-grow: 1; }
-.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 10px; }
-.exp-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); }
-.exp-date { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 1px; }
-.exp-company { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-.exp-desc { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 16px; }
-.exp-skills { display: flex; flex-wrap: wrap; gap: 8px; }
-.exp-skill { font-size: 10px; font-family: var(--font-mono); padding: 4px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; color: var(--accent2); }
+    body:hover #cursor {
+      opacity: 1;
+    }
 
-/* =================== SKILLS =================== */
-.skills-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
-}
-.skill-card {
-  background: var(--card-bg); backdrop-filter: blur(16px);
-  border: 1px solid var(--border); border-radius: 12px;
-  padding: 28px;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  opacity: 0; transform: translateY(20px);
-}
-.skill-card.visible { opacity: 1; transform: translateY(0); }
-.skill-card:hover { transform: translateY(-6px); box-shadow: var(--glow); border-color: var(--accent); }
-.skill-cat {
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
-}
-.skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill-chip {
-  padding: 5px 14px; border-radius: 50px;
-  background: var(--surface); border: 1px solid var(--border);
-  font-size: 12px; color: var(--text); font-weight: 600;
-  transition: all 0.2s; cursor: none;
-}
-.skill-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: scale(1.05); }
+    /* =================== CANVAS PARTICLES =================== */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
 
-/* =================== CERTS =================== */
-.certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-.cert-card {
-  background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
-  padding: 28px; position: relative; overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0; transform: translateY(20px);
-}
-.cert-card.visible { opacity: 1; transform: translateY(0); }
-.cert-card:hover { transform: translateY(-6px); box-shadow: var(--glow); }
-.cert-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--gradient);
-}
-.cert-icon { font-size: 32px; margin-bottom: 16px; }
-.cert-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-.cert-issuer { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
-.cert-date { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
-.cert-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.cert-skill { padding: 3px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 50px; font-size: 10px; letter-spacing: 1px; color: var(--text-muted); }
+    /* =================== THEME SWITCHER =================== */
+    .theme-switcher {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-/* =================== LANGUAGES =================== */
-.lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.lang-card {
-  background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
-  padding: 32px; text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0; transform: translateY(20px);
-}
-.lang-card.visible { opacity: 1; transform: translateY(0); }
-.lang-card:hover { transform: translateY(-6px); box-shadow: var(--glow); }
-.lang-flag { font-size: 48px; margin-bottom: 16px; }
-.lang-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-.lang-level { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
-.lang-bar { height: 4px; background: var(--surface); border-radius: 2px; overflow: hidden; }
-.lang-fill { height: 100%; background: var(--gradient); border-radius: 2px; width: 0; transition: width 1.5s ease; }
+    .theme-btn {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: none;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
 
-/* =================== CONTACT =================== */
-.contact-box {
-  background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
-  padding: 60px; text-align: center; position: relative; overflow: hidden;
-}
-.contact-box::before {
-  content: ''; position: absolute; inset: -2px; border-radius: 16px;
-  background: var(--gradient); z-index: -1; opacity: 0.15;
-}
-.contact-title { font-family: var(--font-display); font-size: 52px; font-weight: 900; margin-bottom: 20px; }
-.contact-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 40px; }
-.contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.contact-link {
-  display: flex; align-items: center; gap: 10px;
-  padding: 14px 28px; border-radius: 50px;
-  border: 1px solid var(--border); font-size: 13px; font-weight: 700;
-  color: var(--text); transition: all 0.3s; cursor: none;
-}
-.contact-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--glow); }
+    .theme-btn:hover {
+      transform: scale(1.4);
+      border-color: #fff;
+    }
 
-/* =================== FOOTER =================== */
-footer {
-  text-align: center; padding: 40px;
-  border-top: 1px solid var(--border);
-  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
-  letter-spacing: 2px; position: relative; z-index: 1;
-}
+    .theme-btn.active {
+      transform: scale(1.4);
+      border-color: #fff;
+      box-shadow: 0 0 12px currentColor;
+    }
 
-/* =================== DIVIDER =================== */
-.divider {
-  width: 100%; height: 1px;
-  background: var(--border);
-  max-width: 1200px; margin: 0 auto;
-  position: relative; z-index: 1;
-}
+    .theme-btn[data-t="cyberpunk"] {
+      background: #7c4dff;
+    }
 
-/* =================== ANIMATIONS =================== */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(0.8); transform-origin: top; }
-  50% { opacity: 1; transform: scaleY(1); }
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 20px var(--accent); }
-  50% { box-shadow: 0 0 50px var(--accent), 0 0 80px var(--accent2); }
-}
-@keyframes shimmer {
-  from { background-position: -200% center; }
-  to { background-position: 200% center; }
-}
+    .theme-btn[data-t="elegance"] {
+      background: #d4af37;
+    }
 
-/* Text shimmer for section titles */
-.shimmer-text {
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 75%, var(--accent) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite;
-}
+    .theme-btn[data-t="ocean"] {
+      background: #00b4ff;
+    }
 
-/* =================== LOADING SCREEN =================== */
-#loading {
-  position: fixed; inset: 0; background: var(--bg);
-  z-index: 99999; display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 24px;
-  transition: opacity 0.8s, visibility 0.8s;
-}
-#loading.hidden { opacity: 0; visibility: hidden; }
-.loading-name {
-  font-family: var(--font-display); font-size: 48px; font-weight: 900;
-  background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: pulse 2s ease-in-out infinite;
-}
-.loading-bar-wrap { width: 200px; height: 2px; background: var(--surface); border-radius: 2px; overflow: hidden; }
-.loading-bar { height: 100%; background: var(--gradient); animation: load 2s ease forwards; }
-@keyframes load { from { width: 0; } to { width: 100%; } }
+    .theme-btn[data-t="forest"] {
+      background: #4caf50;
+    }
 
-/* =================== RESPONSIVE =================== */
-@media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 80px 20px 40px; min-height: auto; }
-  .hero-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-  .hero-visual { order: -1; transform: scale(0.85); margin-bottom: 20px; }
-  .avatar-ring { width: 220px; height: 220px; }
-  .badges-container { display: none; } /* Hide complex floating badges on mobile for clarity */
-  .section { padding: 60px 20px; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .lang-grid { grid-template-columns: 1fr; }
-  .theme-switcher { right: 12px; }
-  .hero-name { font-size: 48px; }
-  .hero-desc { margin: 0 auto 30px; font-size: 14px; }
-  .hero-btns { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
-  .btn { width: 100%; text-align: center; }
-  .contact-box { padding: 40px 20px; }
-  .contact-title { font-size: 32px; }
-  .exp-card { flex-direction: column; gap: 16px; text-align: center; }
-  .exp-logo { margin: 0 auto; }
-}
-</style>
-</head>
-<body data-theme="cyberpunk">
+    .theme-btn[data-t="sunset"] {
+      background: #ff6b9d;
+    }
 
-<!-- Loading Screen -->
-<div id="loading">
-  <div class="loading-name">Seray Kurnaz</div>
-  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
-</div>
+    .theme-label {
+      position: absolute;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      color: var(--text);
+      transition: opacity 0.2s;
+      background: var(--surface);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
 
-<!-- Custom Cursor -->
-<div id="cursor"></div>
-<div id="cursor-trail"></div>
+    .theme-btn:hover .theme-label {
+      opacity: 1;
+    }
 
-<!-- Workaround for console errors injected by external scripts -->
-<div id="dust-var-locale" style="display:none;"></div>
+    /* =================== SCROLL PROGRESS BAR =================== */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--gradient);
+      z-index: 10001;
+      transition: width 0.1s ease-out;
+    }
 
-<!-- Particles -->
-<canvas id="particles-canvas"></canvas>
+    /* =================== NAVBAR =================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 60px;
+      backdrop-filter: blur(20px);
+      background: rgba(var(--bg-rgb, 10, 10, 15), 0.7);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.4s;
+    }
 
-<!-- Theme Switcher -->
-<div class="theme-switcher">
-  <button class="theme-btn active" data-t="cyberpunk" title="Cyberpunk">
-    <span class="theme-label">Cyberpunk</span>
-  </button>
-  <button class="theme-btn" data-t="elegance" title="Elegance">
-    <span class="theme-label">Elegance</span>
-  </button>
-  <button class="theme-btn" data-t="ocean" title="Ocean">
-    <span class="theme-label">Ocean</span>
-  </button>
-  <button class="theme-btn" data-t="forest" title="Forest">
-    <span class="theme-label">Forest</span>
-  </button>
-  <button class="theme-btn" data-t="sunset" title="Sunset">
-    <span class="theme-label">Sunset</span>
-  </button>
-</div>
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
 
-<!-- Scroll Progress Bar -->
-<div id="scroll-progress"></div>
+    .nav-links {
+      display: flex;
+      gap: 36px;
+    }
 
-<!-- Navigation -->
-<nav>
-  <div class="nav-logo" style="display:flex; align-items:center; gap:12px;">
-    <img src="logo.png" alt="Icon" style="height:32px; width:32px; border-radius:6px; object-fit:cover;">
-    <div style="font-family: var(--font-display); font-weight:700;">Seray<span>Kurnaz</span></div>
-  </div>
-  <div class="nav-links">
-    <a href="#hakkimda">Hakkımda</a>
-    <a href="#egitim">Eğitim</a>
-    <a href="#deneyim">Deneyim</a>
-    <a href="#beceriler">Beceriler</a>
-    <a href="#sertifikalar">Sertifikalar</a>
-    <a href="#iletisim">İletişim</a>
-  </div>
-</nav>
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s, letter-spacing 0.3s;
+      position: relative;
+    }
 
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag">// Merhaba, ben</div>
-      <h1 class="hero-name">
-        Seray<span>Kurnaz</span>
-      </h1>
-      <p class="hero-desc">
-        Matematik öğretmeni, yazılım geliştirici ve veri bilimine meraklı. Eskişehir Osmangazi Üniversitesi mezunu; kod yazan, öğreten ve sürekli öğrenen biri.
-      </p>
-      <div class="hero-btns">
-        <a href="#iletisim" class="btn btn-primary">İletişime Geç</a>
-        <a href="#egitim" class="btn btn-outline">Özgeçmişi İncele</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div style="position:relative;">
-        <div class="avatar-ring">
-          <img src="profile.png" alt="Seray Kurnaz" class="avatar-img">
-        </div>
-        <div class="hero-stats">
-          <div class="num">61+</div>
-          <div class="lbl">Bağlantı</div>
-        </div>
-        <div class="badges-container">
-          <div class="badge-float">🎓 Matematik & CS</div>
-          <div class="badge-float">💻 Yazılım Geliştirici</div>
-          <div class="badge-float">📊 Veri Bilimi</div>
-          <div class="badge-float">⚙️ C# & Python</div>
-          <div class="badge-float">🗄️ SQL & Veritabanı</div>
-          <div class="badge-float">📈 Veri Analizi</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Kaydır</span>
-  </div>
-</section>
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
 
-<div class="divider"></div>
+    .nav-links a:hover {
+      color: var(--text);
+      letter-spacing: 3px;
+    }
 
-<!-- About -->
-<section class="section" id="hakkimda">
-  <div class="section-label">// 01. Hakkımda</div>
-  <h2 class="section-title">Beni Tanı<em>yın</em></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>Eskişehir Osmangazi Üniversitesi'nde Matematik ve Bilgisayar Bilimleri alanında lisans derecemi tamamladıktan sonra, Anadolu Üniversitesi'nde Bilgisayar Programcılığı ön lisans programını da başarıyla bitirdim.</p>
-      <p>Dokuz Eylül Üniversitesi'nde pedagojik formasyon eğitimi alarak Millî Eğitim Bakanlığı bünyesinde Matematik Öğretmeni olarak görev yapmaktayım. Yazılım geliştirme, veri bilimi ve dijital pazarlama alanlarında kendimi sürekli geliştiriyorum.</p>
-      <p>Innosa Bilişim Teknolojileri A.Ş.'nde gerçekleştirdiğim staj deneyimi ile sektöre adım attım. Problem çözme, algoritmik düşünce ve analitik becerilerimi hem öğretim hem de yazılım projelerinde aktif olarak kullanıyorum.</p>
-      <div class="about-tags">
-        <span class="tag">Matematik</span>
-        <span class="tag">C#</span>
-        <span class="tag">Python</span>
-        <span class="tag">SQL</span>
-        <span class="tag">ASP.NET MVC</span>
-        <span class="tag">Java</span>
-        <span class="tag">Veri Bilimi</span>
-        <span class="tag">Dijital Pazarlama</span>
-      </div>
-    </div>
-    <div class="info-card reveal">
-      <div class="info-row">
-        <span class="info-key">Konum</span>
-        <span class="info-val">İzmir, Türkiye</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Ünvan</span>
-        <span class="info-val">Matematik Öğretmeni</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Uzmanlık</span>
-        <span class="info-val">Yazılım & Veri Bilimi</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Kurum</span>
-        <span class="info-val">T.C. MEB</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Staj</span>
-        <span class="info-val">Innosa Bilişim A.Ş.</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">LinkedIn</span>
-        <span class="info-val" style="font-size:11px">seray-kurnaz-73b46b1ab</span>
-      </div>
-    </div>
-  </div>
-</section>
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-<div class="divider"></div>
+    /* =================== HERO =================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      padding: 120px 60px 60px;
+      overflow: hidden;
+    }
 
-<!-- Education -->
-<section class="section" id="egitim">
-  <div class="section-label">// 02. Eğitim</div>
-  <h2 class="section-title">Akademik <em>Yolculuk</em></h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2018 — 2022</div>
-      <div class="timeline-title">Eskişehir Osmangazi Üniversitesi</div>
-      <div class="timeline-sub">Lisans · Matematik ve Bilgisayar Bilimleri (BASc)</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">Ekim 2022 — Haziran 2024</div>
-      <div class="timeline-title">Anadolu Üniversitesi</div>
-      <div class="timeline-sub">Ön Lisans · Bilgisayar Programcılığı</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">Eylül 2023 — Mayıs 2024</div>
-      <div class="timeline-title">Dokuz Eylül Üniversitesi</div>
-      <div class="timeline-sub">Eğitim Diploması · Pedagojik Formasyon</div>
-    </div>
-  </div>
-</section>
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
 
-<div class="divider"></div>
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
 
-<!-- Experience -->
-<section class="section" id="deneyim">
-  <div class="section-label">// 03. Deneyim</div>
-  <h2 class="section-title">Kariyer <em>Özeti</em></h2>
-  <div class="exp-grid">
-    <div class="exp-card">
-      <div class="exp-logo">🏫</div>
-      <div class="exp-content">
-        <div class="exp-header">
-          <div class="exp-title">Mathematics Teacher</div>
-          <div class="exp-date">Eyl 2025 - Devam ediyor (8 ay)</div>
-        </div>
-        <div class="exp-company">Begos Teknik Koleji · Tam zamanlı</div>
-        <p class="exp-desc">İzmir, Türkiye · Matematik öğretimi ve lise düzeyinde akademik rehberlik.</p>
-      </div>
-    </div>
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 86px);
+      line-height: 1.0;
+      font-weight: 900;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
 
-    <div class="exp-card">
-      <div class="exp-logo">🏛️</div>
-      <div class="exp-content">
-        <div class="exp-header">
-          <div class="exp-title">Mathematics Teacher</div>
-          <div class="exp-date">Eki 2022 - Haz 2025 (2 yıl 9 ay)</div>
-        </div>
-        <div class="exp-company">Millî Eğitim Bakanlığı · Sözleşmeli</div>
-        <div class="exp-desc">İzmir, Türkiye · Ortaöğretim seviyesinde matematik eğitimi ve sınav hazırlık süreçleri.</div>
-        <div class="exp-skills">
-          <span class="exp-skill">Analitik</span>
-          <span class="exp-skill">Analiz</span>
-          <span class="exp-skill">+4 Yetenek</span>
-        </div>
-      </div>
-    </div>
+    .hero-name span {
+      display: block;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-    <div class="exp-card">
-      <div class="exp-logo">💻</div>
-      <div class="exp-content">
-        <div class="exp-header">
-          <div class="exp-title">Software Developer</div>
-          <div class="exp-date">Tem 2022 - Eyl 2022 (3 ay)</div>
-        </div>
-        <div class="exp-company">Innosa Bilişim Teknolojileri A.Ş. · Stajyer</div>
-        <div class="exp-desc">İzmir, Türkiye · Kurumsal yazılım projelerinde stajyer geliştirici olarak görev alma.</div>
-        <div class="exp-skills">
-          <span class="exp-skill">HTML</span>
-          <span class="exp-skill">ASP.NET MVC</span>
-          <span class="exp-skill">+3 Yetenek</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 420px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+      margin-bottom: 40px;
+    }
 
-<div class="divider"></div>
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
 
-<!-- Skills -->
-<section class="section" id="beceriler">
-  <div class="section-label">// 04. Beceriler</div>
-  <h2 class="section-title">Teknik <em>Yetkinlikler</em></h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-cat">⚙️ Programlama Dilleri</div>
-      <div class="skill-items">
-        <span class="skill-chip">C# ✓</span>
-        <span class="skill-chip">Python</span>
-        <span class="skill-chip">Java</span>
-        <span class="skill-chip">Matlab</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">🌐 Web Teknolojileri</div>
-      <div class="skill-items">
-        <span class="skill-chip">HTML</span>
-        <span class="skill-chip">CSS</span>
-        <span class="skill-chip">ASP.NET MVC</span>
-        <span class="skill-chip">Framework</span>
-        <span class="skill-chip">WordPress</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">🗄️ Veritabanı</div>
-      <div class="skill-items">
-        <span class="skill-chip">SQL</span>
-        <span class="skill-chip">Oracle SQL</span>
-        <span class="skill-chip">Oracle DB</span>
-        <span class="skill-chip">MS SQL Server</span>
-        <span class="skill-chip">Visual Studio</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">📊 Analiz & Veri</div>
-      <div class="skill-items">
-        <span class="skill-chip">Veri Analizi</span>
-        <span class="skill-chip">Veri Bilimi</span>
-        <span class="skill-chip">İstatistik</span>
-        <span class="skill-chip">İstatistiksel Düşünme</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">🧠 Analitik</div>
-      <div class="skill-items">
-        <span class="skill-chip">Problem Analizi</span>
-        <span class="skill-chip">Algoritmik Düşünce</span>
-        <span class="skill-chip">İş Analizi</span>
-        <span class="skill-chip">Analitik</span>
-        <span class="skill-chip">Analiz</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">📣 Dijital Pazarlama</div>
-      <div class="skill-items">
-        <span class="skill-chip">Dijital Pazarlama</span>
-        <span class="skill-chip">Google Ads</span>
-        <span class="skill-chip">Dijital Dönüşüm</span>
-        <span class="skill-chip">Microsoft Excel</span>
-        <span class="skill-chip">Microsoft Office</span>
-      </div>
-    </div>
-  </div>
-</section>
+    .btn {
+      padding: 14px 32px;
+      border-radius: 3px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: none;
+      transition: all 0.3s;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
 
-<div class="divider"></div>
+    .btn-primary {
+      background: var(--gradient);
+      color: #fff;
+      box-shadow: var(--glow);
+    }
 
-<!-- Certificates -->
-<section class="section" id="sertifikalar">
-  <div class="section-label">// 04. Sertifikalar</div>
-  <h2 class="section-title">Lisanslar & <em>Sertifikalar</em></h2>
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-icon">🎯</div>
-      <div class="cert-name">Kapsamlı Google Ads Eğitim Seti</div>
-      <div class="cert-issuer">Udemy</div>
-      <div class="cert-date">Mayıs 2025 · Kimlik: ude.my/UC-bfbbf918</div>
-      <div class="cert-skills">
-        <span class="cert-skill">Dijital Pazarlama</span>
-        <span class="cert-skill">Dijital Dönüşüm</span>
-        <span class="cert-skill">WordPress</span>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">💻</div>
-      <div class="cert-name">C# ile Algoritma ve Programlama 101</div>
-      <div class="cert-issuer">Turkcell Technology</div>
-      <div class="cert-date">Eylül 2021</div>
-      <div class="cert-skills">
-        <span class="cert-skill">C#</span>
-        <span class="cert-skill">Algoritmik Düşünce</span>
-        <span class="cert-skill">Programlama</span>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🤖</div>
-      <div class="cert-name">Veri Bilimi ve Yapay Zekaya Giriş 101</div>
-      <div class="cert-issuer">Turkcell Technology</div>
-      <div class="cert-date">Eylül 2021</div>
-      <div class="cert-skills">
-        <span class="cert-skill">Veri Bilimi</span>
-        <span class="cert-skill">Yapay Zeka</span>
-        <span class="cert-skill">Python</span>
-      </div>
-    </div>
-  </div>
-</section>
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow), 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
 
-<div class="divider"></div>
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
 
-<!-- Languages -->
-<section class="section" id="diller">
-  <div class="section-label">// 05. Diller</div>
-  <h2 class="section-title">Dil <em>Yetkinlikleri</em></h2>
-  <div class="lang-grid">
-    <div class="lang-card">
-      <div class="lang-flag">🇹🇷</div>
-      <div class="lang-name">Türkçe</div>
-      <div class="lang-level">Anadil</div>
-      <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-flag">🇬🇧</div>
-      <div class="lang-name">İngilizce</div>
-      <div class="lang-level">Profesyonel Çalışma Yetkinliği</div>
-      <div class="lang-bar"><div class="lang-fill" data-width="75"></div></div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-flag">🇫🇷</div>
-      <div class="lang-name">Fransızca</div>
-      <div class="lang-level">Sınırlı Çalışma Yetkinliği</div>
-      <div class="lang-bar"><div class="lang-fill" data-width="45"></div></div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-flag">🇮🇹</div>
-      <div class="lang-name">İtalyanca</div>
-      <div class="lang-level">Başlangıç Düzeyi</div>
-      <div class="lang-bar"><div class="lang-fill" data-width="20"></div></div>
-    </div>
-  </div>
-</section>
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-<div class="divider"></div>
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 1.2s 0.6s forwards;
+    }
 
-<!-- Contact -->
-<section class="section" id="iletisim">
-  <div class="section-label">// 06. İletişim</div>
-  <div class="contact-box reveal">
-    <div class="contact-title shimmer-text">Birlikte Çalışalım</div>
-    <div class="contact-sub">Yazılım, eğitim veya veri bilimi projeleri için iletişime geçebilirsiniz.</div>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/seray-kurnaz-73b46b1ab/" target="_blank" class="contact-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://www.linkedin.com/in/seray-kurnaz-73b46b1ab/" target="_blank" class="contact-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        İzmir, Türkiye
-      </a>
-    </div>
-  </div>
-</section>
+    .avatar-ring {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
 
-<footer>
-  <span>© 2026 Seray Kurnaz — Tüm hakları saklıdır</span>
-  &nbsp;·&nbsp;
-  <span style="opacity:0.4">Matematiksel Tutku, Kod Diliyle</span>
-</footer>
+    .avatar-ring::before {
+      content: '';
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      animation: rotate 12s linear infinite;
+      opacity: 0.4;
+    }
 
-<script>
-// ============ LOADING ============
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loading').classList.add('hidden');
-    initParticles();
-  }, 2200);
-});
+    .avatar-ring::after {
+      content: '';
+      position: absolute;
+      inset: -32px;
+      border-radius: 50%;
+      border: 1px solid var(--accent2);
+      animation: rotate 20s linear infinite reverse;
+      opacity: 0.2;
+    }
 
-// ============ CURSOR ============
-const cursor = document.getElementById('cursor');
-const trail = document.getElementById('cursor-trail');
-let mx = 0, my = 0, tx = 0, ty = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
-});
-function animTrail() {
-  tx += (mx - tx) * 0.12;
-  ty += (my - ty) * 0.12;
-  trail.style.left = tx + 'px';
-  trail.style.top = ty + 'px';
-  requestAnimationFrame(animTrail);
-}
-animTrail();
-document.querySelectorAll('a, button, .skill-chip, .tag, .theme-btn').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; trail.style.width = '56px'; trail.style.height = '56px'; });
-  el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; trail.style.width = '36px'; trail.style.height = '36px'; });
-});
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: var(--glow), 0 0 60px rgba(0, 0, 0, 0.5);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-// ============ THEME SWITCHER ============
-const themeBtns = document.querySelectorAll('.theme-btn');
-themeBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const t = btn.dataset.t;
-    document.body.dataset.theme = t;
-    themeBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    // Re-init particles with new color
-    setTimeout(initParticles, 100);
-  });
-});
+    .avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 96px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: var(--glow), 0 0 60px rgba(0, 0, 0, 0.5);
+      border: 3px solid var(--accent);
+    }
 
-// ============ FLOATING SKILLS BACKGROUND ============
-let animFrame;
-function initParticles() {
-  const canvas = document.getElementById('particles-canvas');
-  const ctx = canvas.getContext('2d');
-  if (animFrame) cancelAnimationFrame(animFrame);
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+    .hero-stats {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 24px;
+      text-align: center;
+      box-shadow: var(--glow);
+    }
 
-  const style = getComputedStyle(document.body);
-  const accent = style.getPropertyValue('--accent').trim() || '#7c4dff';
+    .hero-stats .num {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  const skills = [
-    "C#", "Python", "Java", "SQL", "ASP.NET MVC", "WordPress", "Oracle SQL", 
-    "Veri Analizi", "Veri Bilimi", "Yapay Zeka", "İstatistik", "Problem Analizi", 
-    "Algoritmik Düşünce", "Dijital Pazarlama", "Google Ads", "Excel", "Matlab",
-    "Analiz", "İş Analizi", "HTML", "CSS", "Veritabanı", "Yazılım"
-  ];
+    .hero-stats .lbl {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
 
-  const pts = skills.map(skill => ({
-    text: skill,
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    vx: (Math.random() - 0.5) * 0.35,
-    vy: (Math.random() - 0.5) * 0.35,
-    size: Math.random() * 6 + 10,
-    opacity: Math.random() * 0.15 + 0.05
-  }));
+    /* Floating badges */
+    .badge-float {
+      position: absolute;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 12px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), var(--glow);
+      color: var(--text);
+      z-index: 10;
+      pointer-events: none;
+    }
 
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    pts.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
+    /* Strategic positioning inside dedicated container - maximum spacing */
+    .badges-container .badge-float:nth-child(1) {
+      top: -60px;
+      left: -160px;
+      animation-delay: 0s;
+    }
 
-      if (p.x < -100) p.x = canvas.width + 100;
-      if (p.x > canvas.width + 100) p.x = -100;
-      if (p.y < -50) p.y = canvas.height + 50;
-      if (p.y > canvas.height + 50) p.y = -50;
+    .badges-container .badge-float:nth-child(2) {
+      top: 120px;
+      left: -240px;
+      animation-delay: 1.2s;
+    }
 
-      ctx.font = `${p.size}px 'JetBrains Mono'`;
-      ctx.fillStyle = accent;
-      ctx.globalAlpha = p.opacity;
-      ctx.fillText(p.text, p.x, p.y);
-    });
+    .badges-container .badge-float:nth-child(3) {
+      bottom: -50px;
+      left: -140px;
+      animation-delay: 2.4s;
+    }
 
-    // Optional subtle connections
-    ctx.globalAlpha = 0.05;
-    ctx.strokeStyle = accent;
-    for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 150) {
-          ctx.beginPath();
-          ctx.moveTo(pts[i].x, pts[i].y);
-          ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.stroke();
-        }
+    .badges-container .badge-float:nth-child(4) {
+      top: -40px;
+      right: -180px;
+      animation-delay: 0.6s;
+    }
+
+    .badges-container .badge-float:nth-child(5) {
+      top: 160px;
+      right: -250px;
+      animation-delay: 1.8s;
+    }
+
+    .badges-container .badge-float:nth-child(6) {
+      bottom: -20px;
+      right: -210px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      33% {
+        transform: translate(10px, -15px);
+      }
+
+      66% {
+        transform: translate(-10px, 10px);
       }
     }
-    
-    animFrame = requestAnimationFrame(draw);
-  }
-  draw();
-}
 
-window.addEventListener('resize', () => {
-  const canvas = document.getElementById('particles-canvas');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 1.4s forwards;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
 
-// ============ SCROLL ANIMATIONS ============
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, idx) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), idx * 80);
-      // Trigger language bars
-      entry.target.querySelectorAll('.lang-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: var(--gradient);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* =================== SECTIONS =================== */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 60px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* =================== ABOUT =================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .tag {
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .tag:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: var(--glow);
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-key {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .info-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: right;
+    }
+
+    /* =================== EDUCATION =================== */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--gradient);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -34px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .timeline-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* =================== EXPERIENCE =================== */
+    .exp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .exp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .exp-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .exp-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--glow);
+      border-color: var(--accent);
+    }
+
+    .exp-logo {
+      width: 64px;
+      height: 64px;
+      background: var(--surface);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .exp-content {
+      flex-grow: 1;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .exp-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exp-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .exp-company {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .exp-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exp-skill {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      padding: 4px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent2);
+    }
+
+    /* =================== SKILLS =================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .skill-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--glow);
+      border-color: var(--accent);
+    }
+
+    .skill-cat {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      padding: 5px 14px;
+      border-radius: 50px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text);
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: none;
+    }
+
+    .skill-chip:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    /* =================== CERTS =================== */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .cert-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--glow);
+    }
+
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+
+    .cert-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .cert-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .cert-issuer {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cert-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .cert-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .cert-skill {
+      padding: 3px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* =================== LANGUAGES =================== */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .lang-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .lang-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .lang-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--glow);
+    }
+
+    .lang-flag {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .lang-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .lang-level {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .lang-bar {
+      height: 4px;
+      background: var(--surface);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .lang-fill {
+      height: 100%;
+      background: var(--gradient);
+      border-radius: 2px;
+      width: 0;
+      transition: width 1.5s ease;
+    }
+
+    /* =================== CONTACT =================== */
+    .contact-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
+      background: var(--gradient);
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .contact-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      transition: all 0.3s;
+      cursor: none;
+    }
+
+    .contact-link:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--glow);
+    }
+
+    /* =================== FOOTER =================== */
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =================== DIVIDER =================== */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =================== ANIMATIONS =================== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scaleY(0.8);
+        transform-origin: top;
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px var(--accent);
+      }
+
+      50% {
+        box-shadow: 0 0 50px var(--accent), 0 0 80px var(--accent2);
+      }
+    }
+
+    @keyframes shimmer {
+      from {
+        background-position: -200% center;
+      }
+
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Text shimmer for section titles */
+    .shimmer-text {
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 75%, var(--accent) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* =================== LOADING SCREEN =================== */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+      transition: opacity 0.8s, visibility 0.8s;
+    }
+
+    #loading.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-name {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .loading-bar-wrap {
+      width: 200px;
+      height: 2px;
+      background: var(--surface);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .loading-bar {
+      height: 100%;
+      background: var(--gradient);
+      animation: load 2s ease forwards;
+    }
+
+    @keyframes load {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    /* =================== RESPONSIVE =================== */
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 20px 40px;
+        min-height: auto;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .hero-visual {
+        order: -1;
+        transform: scale(0.85);
+        margin-bottom: 20px;
+      }
+
+      .avatar-ring {
+        width: 220px;
+        height: 220px;
+      }
+
+      .badges-container {
+        display: none;
+      }
+
+      /* Hide complex floating badges on mobile for clarity */
+      .section {
+        padding: 60px 20px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .lang-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-switcher {
+        right: 12px;
+      }
+
+      .hero-name {
+        font-size: 48px;
+      }
+
+      .hero-desc {
+        margin: 0 auto 30px;
+        font-size: 14px;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .contact-box {
+        padding: 40px 20px;
+      }
+
+      .contact-title {
+        font-size: 32px;
+      }
+
+      .exp-card {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .exp-logo {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="cyberpunk">
+
+  <!-- Loading Screen -->
+  <div id="loading">
+    <div class="loading-name">Seray Kurnaz</div>
+    <div class="loading-bar-wrap">
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- Workaround for console errors injected by external scripts -->
+  <div id="dust-var-locale" style="display:none;"></div>
+
+  <!-- Particles -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <button class="theme-btn active" data-t="cyberpunk" title="Cyberpunk">
+      <span class="theme-label">Cyberpunk</span>
+    </button>
+    <button class="theme-btn" data-t="elegance" title="Elegance">
+      <span class="theme-label">Elegance</span>
+    </button>
+    <button class="theme-btn" data-t="ocean" title="Ocean">
+      <span class="theme-label">Ocean</span>
+    </button>
+    <button class="theme-btn" data-t="forest" title="Forest">
+      <span class="theme-label">Forest</span>
+    </button>
+    <button class="theme-btn" data-t="sunset" title="Sunset">
+      <span class="theme-label">Sunset</span>
+    </button>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo" style="display:flex; align-items:center; gap:12px;">
+      <img src="logo.png" alt="Icon" style="height:32px; width:32px; border-radius:6px; object-fit:cover;">
+      <div style="font-family: var(--font-display); font-weight:700;">Seray<span>Kurnaz</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#egitim">Eğitim</a>
+      <a href="#deneyim">Deneyim</a>
+      <a href="#beceriler">Beceriler</a>
+      <a href="#sertifikalar">Sertifikalar</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">// Merhaba, ben</div>
+        <h1 class="hero-name">
+          Seray<span>Kurnaz</span>
+        </h1>
+        <p class="hero-desc">
+          Matematik öğretmeni, yazılım geliştirici ve veri bilimine meraklı. Eskişehir Osmangazi Üniversitesi mezunu;
+          kod yazan, öğreten ve sürekli öğrenen biri.
+        </p>
+        <div class="hero-btns">
+          <a href="#iletisim" class="btn btn-primary">İletişime Geç</a>
+          <a href="#egitim" class="btn btn-outline">Özgeçmişi İncele</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div style="position:relative;">
+          <div class="avatar-ring">
+            <img src="profile.png" alt="Seray Kurnaz" class="avatar-img">
+          </div>
+          <div class="hero-stats">
+            <div class="num">61+</div>
+            <div class="lbl">Bağlantı</div>
+          </div>
+          <div class="badges-container">
+            <div class="badge-float">🎓 Matematik & CS</div>
+            <div class="badge-float">💻 Yazılım Geliştirici</div>
+            <div class="badge-float">📊 Veri Bilimi</div>
+            <div class="badge-float">⚙️ C# & Python</div>
+            <div class="badge-float">🗄️ SQL & Veritabanı</div>
+            <div class="badge-float">📈 Veri Analizi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Kaydır</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- About -->
+  <section class="section" id="hakkimda">
+    <div class="section-label">// 01. Hakkımda</div>
+    <h2 class="section-title">Beni Tanı<em>yın</em></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Eskişehir Osmangazi Üniversitesi'nde Matematik ve Bilgisayar Bilimleri alanında lisans derecemi tamamladıktan
+          sonra, Anadolu Üniversitesi'nde Bilgisayar Programcılığı ön lisans programını da başarıyla bitirdim.</p>
+        <p>Dokuz Eylül Üniversitesi'nde pedagojik formasyon eğitimi alarak Millî Eğitim Bakanlığı bünyesinde Matematik
+          Öğretmeni olarak görev yapmaktayım. Yazılım geliştirme, veri bilimi ve dijital pazarlama alanlarında kendimi
+          sürekli geliştiriyorum.</p>
+        <p>Innosa Bilişim Teknolojileri A.Ş.'nde gerçekleştirdiğim staj deneyimi ile sektöre adım attım. Problem çözme,
+          algoritmik düşünce ve analitik becerilerimi hem öğretim hem de yazılım projelerinde aktif olarak kullanıyorum.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Matematik</span>
+          <span class="tag">C#</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">ASP.NET MVC</span>
+          <span class="tag">Java</span>
+          <span class="tag">Veri Bilimi</span>
+          <span class="tag">Dijital Pazarlama</span>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-row">
+          <span class="info-key">Konum</span>
+          <span class="info-val">İzmir, Türkiye</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Ünvan</span>
+          <span class="info-val">Matematik Öğretmeni</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Uzmanlık</span>
+          <span class="info-val">Yazılım & Veri Bilimi</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Kurum</span>
+          <span class="info-val">T.C. MEB</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Staj</span>
+          <span class="info-val">Innosa Bilişim A.Ş.</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">LinkedIn</span>
+          <span class="info-val" style="font-size:11px">seray-kurnaz-73b46b1ab</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Education -->
+  <section class="section" id="egitim">
+    <div class="section-label">// 02. Eğitim</div>
+    <h2 class="section-title">Akademik <em>Yolculuk</em></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2018 — 2022</div>
+        <div class="timeline-title">Eskişehir Osmangazi Üniversitesi</div>
+        <div class="timeline-sub">Lisans · Matematik ve Bilgisayar Bilimleri (BASc)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Ekim 2022 — Haziran 2024</div>
+        <div class="timeline-title">Anadolu Üniversitesi</div>
+        <div class="timeline-sub">Ön Lisans · Bilgisayar Programcılığı</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Eylül 2023 — Mayıs 2024</div>
+        <div class="timeline-title">Dokuz Eylül Üniversitesi</div>
+        <div class="timeline-sub">Eğitim Diploması · Pedagojik Formasyon</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Experience -->
+  <section class="section" id="deneyim">
+    <div class="section-label">// 03. Deneyim</div>
+    <h2 class="section-title">Kariyer <em>Özeti</em></h2>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-logo">🏫</div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-title">Mathematics Teacher</div>
+            <div class="exp-date">Eyl 2025 - Devam ediyor (8 ay)</div>
+          </div>
+          <div class="exp-company">Begos Teknik Koleji · Tam zamanlı</div>
+          <p class="exp-desc">İzmir, Türkiye · Matematik öğretimi ve lise düzeyinde akademik rehberlik.</p>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-logo">🏛️</div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-title">Mathematics Teacher</div>
+            <div class="exp-date">Eki 2022 - Haz 2025 (2 yıl 9 ay)</div>
+          </div>
+          <div class="exp-company">Millî Eğitim Bakanlığı · Sözleşmeli</div>
+          <div class="exp-desc">İzmir, Türkiye · Ortaöğretim seviyesinde matematik eğitimi ve sınav hazırlık süreçleri.
+          </div>
+          <div class="exp-skills">
+            <span class="exp-skill">Analitik</span>
+            <span class="exp-skill">Analiz</span>
+            <span class="exp-skill">+4 Yetenek</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-logo">💻</div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-title">Software Developer</div>
+            <div class="exp-date">Tem 2022 - Eyl 2022 (3 ay)</div>
+          </div>
+          <div class="exp-company">Innosa Bilişim Teknolojileri A.Ş. · Stajyer</div>
+          <div class="exp-desc">İzmir, Türkiye · Kurumsal yazılım projelerinde stajyer geliştirici olarak görev alma.
+          </div>
+          <div class="exp-skills">
+            <span class="exp-skill">HTML</span>
+            <span class="exp-skill">ASP.NET MVC</span>
+            <span class="exp-skill">+3 Yetenek</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Skills -->
+  <section class="section" id="beceriler">
+    <div class="section-label">// 04. Beceriler</div>
+    <h2 class="section-title">Teknik <em>Yetkinlikler</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">⚙️ Programlama Dilleri</div>
+        <div class="skill-items">
+          <span class="skill-chip">C# ✓</span>
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">Matlab</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">🌐 Web Teknolojileri</div>
+        <div class="skill-items">
+          <span class="skill-chip">HTML</span>
+          <span class="skill-chip">CSS</span>
+          <span class="skill-chip">ASP.NET MVC</span>
+          <span class="skill-chip">Framework</span>
+          <span class="skill-chip">WordPress</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">🗄️ Veritabanı</div>
+        <div class="skill-items">
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Oracle SQL</span>
+          <span class="skill-chip">Oracle DB</span>
+          <span class="skill-chip">MS SQL Server</span>
+          <span class="skill-chip">Visual Studio</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">📊 Analiz & Veri</div>
+        <div class="skill-items">
+          <span class="skill-chip">Veri Analizi</span>
+          <span class="skill-chip">Veri Bilimi</span>
+          <span class="skill-chip">İstatistik</span>
+          <span class="skill-chip">İstatistiksel Düşünme</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">🧠 Analitik</div>
+        <div class="skill-items">
+          <span class="skill-chip">Problem Analizi</span>
+          <span class="skill-chip">Algoritmik Düşünce</span>
+          <span class="skill-chip">İş Analizi</span>
+          <span class="skill-chip">Analitik</span>
+          <span class="skill-chip">Analiz</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">📣 Dijital Pazarlama</div>
+        <div class="skill-items">
+          <span class="skill-chip">Dijital Pazarlama</span>
+          <span class="skill-chip">Google Ads</span>
+          <span class="skill-chip">Dijital Dönüşüm</span>
+          <span class="skill-chip">Microsoft Excel</span>
+          <span class="skill-chip">Microsoft Office</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Certificates -->
+  <section class="section" id="sertifikalar">
+    <div class="section-label">// 04. Sertifikalar</div>
+    <h2 class="section-title">Lisanslar & <em>Sertifikalar</em></h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎯</div>
+        <div class="cert-name">Kapsamlı Google Ads Eğitim Seti</div>
+        <div class="cert-issuer">Udemy</div>
+        <div class="cert-date">Mayıs 2025 · Kimlik: ude.my/UC-bfbbf918</div>
+        <div class="cert-skills">
+          <span class="cert-skill">Dijital Pazarlama</span>
+          <span class="cert-skill">Dijital Dönüşüm</span>
+          <span class="cert-skill">WordPress</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">💻</div>
+        <div class="cert-name">C# ile Algoritma ve Programlama 101</div>
+        <div class="cert-issuer">Turkcell Technology</div>
+        <div class="cert-date">Eylül 2021</div>
+        <div class="cert-skills">
+          <span class="cert-skill">C#</span>
+          <span class="cert-skill">Algoritmik Düşünce</span>
+          <span class="cert-skill">Programlama</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-name">Veri Bilimi ve Yapay Zekaya Giriş 101</div>
+        <div class="cert-issuer">Turkcell Technology</div>
+        <div class="cert-date">Eylül 2021</div>
+        <div class="cert-skills">
+          <span class="cert-skill">Veri Bilimi</span>
+          <span class="cert-skill">Yapay Zeka</span>
+          <span class="cert-skill">Python</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Languages -->
+  <section class="section" id="diller">
+    <div class="section-label">// 05. Diller</div>
+    <h2 class="section-title">Dil <em>Yetkinlikleri</em></h2>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="lang-flag">🇹🇷</div>
+        <div class="lang-name">Türkçe</div>
+        <div class="lang-level">Anadil</div>
+        <div class="lang-bar">
+          <div class="lang-fill" data-width="100"></div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇬🇧</div>
+        <div class="lang-name">İngilizce</div>
+        <div class="lang-level">Profesyonel Çalışma Yetkinliği</div>
+        <div class="lang-bar">
+          <div class="lang-fill" data-width="75"></div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇫🇷</div>
+        <div class="lang-name">Fransızca</div>
+        <div class="lang-level">Sınırlı Çalışma Yetkinliği</div>
+        <div class="lang-bar">
+          <div class="lang-fill" data-width="45"></div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇮🇹</div>
+        <div class="lang-name">İtalyanca</div>
+        <div class="lang-level">Başlangıç Düzeyi</div>
+        <div class="lang-bar">
+          <div class="lang-fill" data-width="20"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Contact -->
+  <section class="section" id="iletisim">
+    <div class="section-label">// 06. İletişim</div>
+    <div class="contact-box reveal">
+      <div class="contact-title shimmer-text">Birlikte Çalışalım</div>
+      <div class="contact-sub">Yazılım, eğitim veya veri bilimi projeleri için iletişime geçebilirsiniz.</div>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/seray-kurnaz-73b46b1ab/" target="_blank" class="contact-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://www.linkedin.com/in/seray-kurnaz-73b46b1ab/" target="_blank" class="contact-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          İzmir, Türkiye
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Seray Kurnaz — Tüm hakları saklıdır</span>
+    &nbsp;·&nbsp;
+    <span style="opacity:0.4">Matematiksel Tutku, Kod Diliyle</span>
+  </footer>
+
+  <script>
+    // ============ LOADING ============
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading').classList.add('hidden');
+        initParticles();
+      }, 2200);
+    });
+
+    // ============ CURSOR ============
+    const cursor = document.getElementById('cursor');
+    const trail = document.getElementById('cursor-trail');
+    let mx = 0, my = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+    function animTrail() {
+      tx += (mx - tx) * 0.12;
+      ty += (my - ty) * 0.12;
+      trail.style.left = tx + 'px';
+      trail.style.top = ty + 'px';
+      requestAnimationFrame(animTrail);
+    }
+    animTrail();
+    document.querySelectorAll('a, button, .skill-chip, .tag, .theme-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; trail.style.width = '56px'; trail.style.height = '56px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; trail.style.width = '36px'; trail.style.height = '36px'; });
+    });
+
+    // ============ THEME SWITCHER ============
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = btn.dataset.t;
+        document.body.dataset.theme = t;
+        themeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // Re-init particles with new color
+        setTimeout(initParticles, 100);
+      });
+    });
+
+    // ============ FLOATING SKILLS BACKGROUND ============
+    let animFrame;
+    function initParticles() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      if (animFrame) cancelAnimationFrame(animFrame);
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const style = getComputedStyle(document.body);
+      const accent = style.getPropertyValue('--accent').trim() || '#7c4dff';
+
+      const skills = [
+        "C#", "Python", "Java", "SQL", "ASP.NET MVC", "WordPress", "Oracle SQL",
+        "Veri Analizi", "Veri Bilimi", "Yapay Zeka", "İstatistik", "Problem Analizi",
+        "Algoritmik Düşünce", "Dijital Pazarlama", "Google Ads", "Excel", "Matlab",
+        "Analiz", "İş Analizi", "HTML", "CSS", "Veritabanı", "Yazılım"
+      ];
+
+      const pts = skills.map(skill => ({
+        text: skill,
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: Math.random() * 12 + 14,
+        opacity: Math.random() * 0.3 + 0.15
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        pts.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < -150) p.x = canvas.width + 150;
+          if (p.x > canvas.width + 150) p.x = -150;
+          if (p.y < -100) p.y = canvas.height + 100;
+          if (p.y > canvas.height + 100) p.y = -100;
+
+          ctx.font = `${p.size}px 'JetBrains Mono'`;
+          ctx.fillStyle = accent;
+          ctx.globalAlpha = p.opacity;
+          
+          // Add soft glow
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = accent;
+          
+          ctx.fillText(p.text, p.x, p.y);
+          
+          // Reset shadow for performance
+          ctx.shadowBlur = 0;
+        });
+
+        // Optional subtle connections
+        ctx.globalAlpha = 0.05;
+        ctx.strokeStyle = accent;
+        for (let i = 0; i < pts.length; i++) {
+          for (let j = i + 1; j < pts.length; j++) {
+            const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        animFrame = requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('particles-canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // ============ SCROLL ANIMATIONS ============
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+          // Trigger language bars
+          entry.target.querySelectorAll('.lang-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.timeline-item, .skill-card, .cert-card, .lang-card, .exp-card').forEach(el => observer.observe(el));
+
+    // Also for lang bars on initial intersect
+    const langObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.lang-fill').forEach(bar => {
+            setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 300);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.lang-card').forEach(el => langObserver.observe(el));
+
+    // ============ NAVBAR & PROGRESS SCROLL ============
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      const progress = document.getElementById('scroll-progress');
+
+      // Progress calculation
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progress.style.width = scrolled + "%";
+
+      if (window.scrollY > 60) {
+        nav.style.padding = '12px 60px';
+        nav.style.background = 'rgba(var(--bg-rgb, 10,10,15), 0.85)';
+        nav.style.boxShadow = '0 8px 32px rgba(0,0,0,0.4)';
+        nav.style.backdropFilter = 'blur(20px) saturate(180%)';
+      } else {
+        nav.style.padding = '20px 60px';
+        nav.style.background = 'rgba(var(--bg-rgb, 10,10,15), 0.7)';
+        nav.style.boxShadow = 'none';
+        nav.style.backdropFilter = 'blur(20px)';
+      }
+    });
+
+    // ============ TILT ON AVATAR ============
+    const avatar = document.querySelector('.avatar-ring');
+    if (avatar) {
+      document.addEventListener('mousemove', e => {
+        const rect = avatar.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / window.innerWidth * 20;
+        const dy = (e.clientY - cy) / window.innerHeight * 20;
+        avatar.style.transform = `perspective(600px) rotateY(${dx}deg) rotateX(${-dy}deg)`;
       });
     }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.timeline-item, .skill-card, .cert-card, .lang-card, .exp-card').forEach(el => observer.observe(el));
-
-// Also for lang bars on initial intersect
-const langObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.lang-fill').forEach(bar => {
-        setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 300);
-      });
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('.lang-card').forEach(el => langObserver.observe(el));
-
-// ============ NAVBAR & PROGRESS SCROLL ============
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  const progress = document.getElementById('scroll-progress');
-  
-  // Progress calculation
-  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (winScroll / height) * 100;
-  progress.style.width = scrolled + "%";
-
-  if (window.scrollY > 60) {
-    nav.style.padding = '12px 60px';
-    nav.style.background = 'rgba(var(--bg-rgb, 10,10,15), 0.85)';
-    nav.style.boxShadow = '0 8px 32px rgba(0,0,0,0.4)';
-    nav.style.backdropFilter = 'blur(20px) saturate(180%)';
-  } else {
-    nav.style.padding = '20px 60px';
-    nav.style.background = 'rgba(var(--bg-rgb, 10,10,15), 0.7)';
-    nav.style.boxShadow = 'none';
-    nav.style.backdropFilter = 'blur(20px)';
-  }
-});
-
-// ============ TILT ON AVATAR ============
-const avatar = document.querySelector('.avatar-ring');
-if (avatar) {
-  document.addEventListener('mousemove', e => {
-    const rect = avatar.getBoundingClientRect();
-    const cx = rect.left + rect.width/2, cy = rect.top + rect.height/2;
-    const dx = (e.clientX - cx) / window.innerWidth * 20;
-    const dy = (e.clientY - cy) / window.innerHeight * 20;
-    avatar.style.transform = `perspective(600px) rotateY(${dx}deg) rotateX(${-dy}deg)`;
-  });
-}
-</script>
+  </script>
 </body>
+
 </html>
