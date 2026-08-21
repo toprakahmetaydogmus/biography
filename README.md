@@ -1,18 +1,29 @@
-# 🌌 Seray Kurnaz — Profesyonel Portfolyo
+# 🌌 Seray Kurnaz — Professional Portfolio
 
-Matematik Öğretmeni ve Yazılım Geliştirici Seray Kurnaz'ın modern, dinamik ve estetik portfolyo web sitesi.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](#)
 
-## ✨ Öne Çıkan Özellikler
+---
 
-- **Dinamik Temalar**: Cyberpunk, Elegance, Ocean, Forest ve Sunset olmak üzere 5 farklı renk teması seçeneği.
-- **Floating Skills Background**: Arka planda uçuşan, interaktif yetenek bulutu.
-- **Modern UI/UX**: Cam morfolojisi (glassmorphism), özel imleç (cursor) efektleri ve akışkan animasyonlar.
-- **Deneyim & Eğitim**: Detaylı kariyer geçmişi ve akademik yolculuk bölümleri.
-- **Tam Mobil Uyumluluk**: Tüm cihazlarda (telefon, tablet, masaüstü) sorunsuz görüntüleme.
+## 🎯 1. Overview
+A sleek, modern, and aesthetic portfolio website showcasing the academic work, educational projects, and software development portfolio of Mathematics Educator and Developer **Seray Kurnaz**.
 
-## 🛠️ Kullanılan Teknolojiler
+### Key Features:
+- **Dynamic Curriculum Vitae:** Interactive academic timeline, certifications, and awards.
+- **Interactive Project Showcase:** Filterable gallery of educational tools and software projects.
+- **Responsive Aesthetics:** Dark glassmorphism, fluid micro-interactions, and mobile-first design.
 
-- **HTML5 & CSS3**: Saf (vanilla) CSS ile özel tasarım ve modern düzenleme.
-- **JavaScript (ES6+)**: İnteraktif animasyonlar, tema yönetimi ve scroll efektleri için.
-- **Google Fonts**: Playfair Display, Syne ve JetBrains Mono tipografileri.
-- **Canvas API**: Arka plandaki yetenek bulutu animasyonu için.
+---
+
+## 🚀 2. Quick Start
+
+```bash
+git clone https://github.com/toprakahmetaydogmus/biography.git
+cd biography
+# Open index.html in your browser
+```
+
+---
+
+## 📜 3. License
+Licensed under the [MIT License](LICENSE).
